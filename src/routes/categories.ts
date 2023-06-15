@@ -5,22 +5,5 @@ const categories: Router = Router();
 
 categories.get("/", categoriesController.index);
 
-categories.post(
-  "/",
-
-  categoriesController.insert
-);
-
-categories.put(
-  "/:name",
-
-  categoriesController.update
-);
-
-categories.delete(
-  "/:name",
-
-  categoriesController.remove
-);
-
+categories.post("/", categoriesController.insert);
 export { categories };

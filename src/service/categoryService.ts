@@ -48,42 +48,8 @@ const insertCategory = async (category: Category) => {
     });
   }
   const id: any = await categoryRepository.insert(category);
-  const newCategory = await findCategoryById(id[0]);
+  const newCategory = await findCategoryById(id);
   return newCategory;
-};
-
-const updateCategory = async (oldName: string, newData: Category) => {
-  const findCategory: any = await findCategoryByName(oldName);
-
-  const verifyNewCategory: any = await categoryRepository.selectByName(
-    newData.name
-  );
-
-  if (verifyNewCategory[0]) {
-    throw makeError({
-      message: "Category name already registered",
-      status: 400,
-    });
-  }
-
-  const id = parseInt(findCategory[0].id);
-
-  await categoryRepository.update(id, newData);
-
-  const result = await findCategoryById(id);
-
-  return result;
-};
-
-const deleteCategory = async (name: string) => {
-  const findCategory: any = await findCategoryByName(name);
-
-  await categoryRepository.remove(findCategory[0].id);
-  const result = {
-    message: "Category successfully deleted",
-    category: findCategory[0],
-  };
-  return result;
 };
 
 export default {
@@ -91,8 +57,6 @@ export default {
   findCategoryByName,
   findCategoryById,
   insertCategory,
-  updateCategory,
-  deleteCategory,
 };
 
 // try {

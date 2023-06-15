@@ -4,7 +4,12 @@ import type { Knex } from "knex";
 
 const config: Knex.Config = {
   client: "pg",
-  connection: "https://lpurlajmumofvmzxygct.supabase.co",
+  connection:
+    "postgres://postgres:GbVnsxHs8uHuaaxT@db.lpurlajmumofvmzxygct.supabase.co:6543/postgres",
+  migrations: {
+    directory: "src/database",
+  },
+  useNullAsDefault: true,
 };
 
 export default config;

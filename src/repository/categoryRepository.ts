@@ -30,8 +30,8 @@ const selectById = async (id: number) => {
 };
 
 const insert = async (item: Category) => {
-  const id = await knexInstance("categories").insert(item);
-  return id;
+  const id = await knexInstance("categories").insert(item).returning(["id"]);
+  return id[0].id;
 };
 
 const update = async (id: number, item: Category) => {

@@ -29,29 +29,4 @@ const insert = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-const update = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const category = await categoryService.updateCategory(
-      req.params.name,
-      req.body
-    );
-
-    res.status(200).send(category);
-  } catch (error: any) {
-    next(error);
-  }
-};
-
-const remove = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const name = req.params.name;
-
-    const deleted = await categoryService.deleteCategory(name);
-
-    res.status(200).send(deleted);
-  } catch (error: any) {
-    next(error);
-  }
-};
-
-export default { insert, index, update, remove };
+export default { insert, index };
