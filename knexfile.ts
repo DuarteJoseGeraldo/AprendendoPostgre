@@ -5,7 +5,7 @@ import type { Knex } from "knex";
 const config: Knex.Config = {
   client: "pg",
   connection:
-    "postgres://postgres:GbVnsxHs8uHuaaxT@db.lpurlajmumofvmzxygct.supabase.co:6543/postgres",
+    "postgres://postgres:@FeedQUEM2023@db.butcagyhctuhddxzrgqy.supabase.co:6543/postgres",
   migrations: {
     directory: "src/database",
   },
